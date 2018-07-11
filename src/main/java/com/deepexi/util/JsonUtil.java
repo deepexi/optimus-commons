@@ -4,7 +4,11 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import com.alibaba.fastjson.JSON;
-
+/**
+ * JsonUtil
+ * @author yunzi7758
+ *
+ */
 public class JsonUtil {
 
 	/**
@@ -13,7 +17,7 @@ public class JsonUtil {
 	 * @param t
 	 * @return
 	 */
-    public <T> T map2Bean(Map<String, ?> mapData,T t) {
+    public static <T> T map2Bean(Map<String, ?> mapData,T t) {
         return (T) JSON.parseObject(JSON.toJSONString(mapData), t.getClass());
     }
     
@@ -23,7 +27,7 @@ public class JsonUtil {
      * @param t
      * @return
      */
-    public <T> Map<String, String> bean2Map(T t) {
+    public static <T> Map<String, String> bean2Map(T t) {
         return JSON.parseObject(t.toString(), TreeMap.class);
     }
     
@@ -34,7 +38,7 @@ public class JsonUtil {
      * @param t
      * @return
      */
-    public <T> T json2Bean(String jsonData , T t) {
+    public static <T> T json2Bean(String jsonData , T t) {
         return (T) JSON.parseObject(jsonData, t.getClass());
     }
     
@@ -44,7 +48,7 @@ public class JsonUtil {
      * @param jsonData
      * @return
      */
-    public Map<String, String> json2Map(String jsonData) {
+    public static Map<String, String> json2Map(String jsonData) {
         return JSON.parseObject(jsonData, TreeMap.class);
     }
 }

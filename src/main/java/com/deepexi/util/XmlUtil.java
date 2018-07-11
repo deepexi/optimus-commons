@@ -19,7 +19,7 @@ public class XmlUtil {
      * @return
      * @throws Exception
      */
-    public Map<String, String> xml2Map(String xml) throws Exception {
+    public static Map<String, String> xml2Map(String xml) throws Exception {
         Document document = DocumentHelper.parseText(xml);
         //添加节点信息
         Element rootElement = document.getRootElement();
@@ -39,7 +39,7 @@ public class XmlUtil {
      * @return
      * @throws Exception
      */
-    public <T> T xml2Bean(String xml, T t) throws Exception {
+    public static <T> T xml2Bean(String xml, T t) throws Exception {
         return (T) JSON.parseObject(JSON.toJSONString(xml2Map(xml)), t.getClass());
     }
 }
