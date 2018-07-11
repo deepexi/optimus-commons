@@ -10,6 +10,11 @@ import org.dom4j.Element;
 
 import com.alibaba.fastjson.JSON;
 
+/**
+ * XmlUtil
+ * @author yunzi7758
+ *
+ */
 public class XmlUtil {
 
 	/**

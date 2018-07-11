@@ -5,6 +5,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * 文件工具
+ * @author yunzi7758
+ *
+ */
 public class FileUtils {
 
 

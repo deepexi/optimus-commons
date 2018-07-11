@@ -27,7 +27,12 @@ public class MD5Util {
 	
 	/**
 	 * 获取该字符串的MD5值
-	 * 用例: MD5Util.getMd5ByString("123")
+	 * 
+	 * <pre>
+	 * 用例:
+	 * MD5Util.getMd5ByString("123") = 202cb962ac59075b964b07152d234b70
+	 * 
+	 * </pre>
 	 * @param sourceString
 	 * @return 
 	 */

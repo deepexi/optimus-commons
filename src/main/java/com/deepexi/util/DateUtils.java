@@ -6,6 +6,11 @@ import java.text.*;
 
 import org.apache.commons.lang3.StringUtils;
 
+/**
+ * 日期时间工具
+ * @author yunzi7758
+ *
+ */
 public class DateUtils {
 	
 	 /**

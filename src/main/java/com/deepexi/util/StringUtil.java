@@ -7,7 +7,11 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-
+/**
+ * 字符串工具
+ * @author yunzi7758
+ *
+ */
 public class StringUtil {
 
 	/**
