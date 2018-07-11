@@ -27,8 +27,9 @@ public class MD5Util {
 	
 	/**
 	 * 获取该字符串的MD5值
+	 * 用例: MD5Util.getMd5ByString("123")
 	 * @param sourceString
-	 * @return
+	 * @return 
 	 */
 	public static String getMd5ByString(String sourceString){
 		String result = null;
@@ -187,7 +188,7 @@ public class MD5Util {
      * 加盐MD5
      *
      * @param password
-     * @return
+     * @return	用例
      * @author daniel
      * @time 2016-6-11 下午8:45:04
      */
@@ -258,7 +259,7 @@ public class MD5Util {
         // root 295850b9fa4034b94061e38da8d760a1b743120268f1c14b
 
         System.out.println("原始：" + plaintext);
-        System.out.println(MD5Util.getMd5ByString(plaintext));
+        System.out.println(MD5Util.getMd5ByString("123"));
         System.out.println("普通MD5后：" + MD5Util.MD5(plaintext));
 
         String ciphertext = MD5Util.generate(plaintext);
