@@ -1,8 +1,10 @@
-package com.deepexi.util;
+package com.deepexi.util.impl.reflection;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import com.deepexi.util.CollectionUtil;
 
 /**
  * ClassName: ClassUtil <br/>
