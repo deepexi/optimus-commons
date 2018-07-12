@@ -8,6 +8,17 @@ public class ArrayUtils {
 
 	/**
 	 * 将数组array以,拼接为字符串
+	 * <p/>
+	 * 
+	 * <pre>
+	 * @Test
+	 * public void toString1() {
+     * 
+	 * 	Integer[] array = {1,3,34,4};
+	 * 	String string = ArrayUtils.toString(array);
+	 * 	System.out.println(string);
+	 * }
+	 * </pre>
 	 * 
 	 * 
 	 * @param array
@@ -19,6 +30,18 @@ public class ArrayUtils {
 	
 	/**
 	 * 将数组array以split拼接为字符串
+	 * <p/>
+	 * 
+	 * <pre>
+	 * @Test
+	 * public void toString2() {
+	 * 
+	 * 	Integer[] array = {1,3,34,4};
+	 * 	String string = ArrayUtils.toString(array,"+");
+	 * 	System.out.println(string);
+	 * }
+	 * </pre>
+	 * 
 	 * @param array
 	 * @param split
 	 * @return
