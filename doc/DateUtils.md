@@ -18,7 +18,8 @@
 
 获取当前时间
 
- * **Returns:** * <pre>DateUtils.now() = Thu Jul 12 10:58:12 CST 2018</pre>
+ * **Returns:** * 
+ <pre>DateUtils.now() = Thu Jul 12 10:58:12 CST 2018</pre>
 
 ## `public static String toDateText(Date date)`
 
@@ -70,13 +71,15 @@ yyyy-MM-dd HH:mm
 
 ## `public static String getHour()`
 
-得到现在小时 <pre>DateUtils.getHour() = 10</pre>
+得到现在小时 
+<pre>DateUtils.getHour() = 10</pre>
 
 ## `public static String getTime()`
 
 得到现在分钟
 
- * **Returns:** * <pre>DateUtils.getTime() = 58</pre>
+ * **Returns:** *
+    <pre>DateUtils.getTime() = 58</pre>
 
 ## `public static String getTwoHour(String st1, String st2)`
 
@@ -92,7 +95,10 @@ yyyy-MM-dd HH:mm
 
 ## `public static String getNextDay(String nowdate, String delay)`
 
-得到一个时间延后或前移几天的时间,nowdate为时间,delay为前移或后延的天数 <pre>DateUtils.getNextDay("Thu Jul 12 10:58:12 CST 2018","2") = Mon Jul 16 10:58:12 CST 2018</pre>
+得到一个时间延后或前移几天的时间,nowdate为时间,delay为前移或后延的天数 
+
+
+<pre>DateUtils.getNextDay("Thu Jul 12 10:58:12 CST 2018","2") = Mon Jul 16 10:58:12 CST 2018</pre>
 
 ## `public static Date getNextDay(Date d, int delay)`
 
@@ -358,7 +364,9 @@ yyyy-MM-dd HH:mm
  * **Parameters:**
    * `date` — 
    * `formater` — 
- * **Returns:** * <pre>DateUtils.format("Thu Jul 12 10:58:12 CST 2018") = 2018-07-12</pre>
+ * **Returns:** * 
+
+ <pre>DateUtils.format("Thu Jul 12 10:58:12 CST 2018") = 2018-07-12</pre>
 
 ## `public static String format(Date date, String formater)`
 
