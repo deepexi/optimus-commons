@@ -1,5 +1,6 @@
 package com.deepexi.util;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -13,6 +14,7 @@ public class JsonUtil {
 
 	/**
      * map转换成对象
+     * 
 	 * @param mapData
 	 * @param t
 	 * @return
@@ -23,12 +25,21 @@ public class JsonUtil {
     
 	/**
      * java对象转map
-     * 
      * @param t
      * @return
      */
     public static <T> Map<String, String> bean2Map(T t) {
-        return JSON.parseObject(t.toString(), TreeMap.class);
+        return JSON.parseObject(JSON.toJSONString(t), TreeMap.class);
+    }
+    
+    /**
+     * java对象转jsonString
+     * 
+     * @param t
+     * @return
+     */
+    public static <T> String bean2JsonString(T t) {
+        return JSON.toJSONString(t);
     }
     
     /**
