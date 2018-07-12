@@ -2,6 +2,8 @@ package com.deepexi.util;
 
 import java.util.UUID;
 
+import com.deepexi.util.impl.id.ObjectId;
+
 /** 
  * id生成器
  */
