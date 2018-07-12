@@ -55,6 +55,11 @@ public class DateUtils {
 		return StringUtils.isNotEmpty(dateAsText) && dateAsText.matches(DATE_PATTERN);
 	}
 
+	/**
+	 * 获取当前时间
+	 * @return
+	 * <pre>DateUtils.now() = Thu Jul 12 10:58:12 CST 2018</pre>
+	 */
 	public static Date now() {
 		return new Date();
 	}
@@ -110,6 +115,7 @@ public class DateUtils {
 	 * 当前年份
 	 * 
 	 * @return Current year
+	 * <pre>DateUtils.currentYear() = 2018</pre>
 	 */
 	public static int currentYear() {
 		return calendar().get(Calendar.YEAR);
@@ -158,6 +164,7 @@ public class DateUtils {
 
 	/**
 	 * 得到现在小时
+	 * <pre>DateUtils.getHour() = 10</pre>
 	 */
 	public static String getHour() {
 		Date currentTime = new Date();
@@ -172,6 +179,7 @@ public class DateUtils {
 	 * 得到现在分钟
 	 * 
 	 * @return
+	 * <pre>DateUtils.getTime() = 58</pre>
 	 */
 	public static String getTime() {
 		Date currentTime = new Date();
@@ -236,6 +244,7 @@ public class DateUtils {
 
 	/**
 	 * 得到一个时间延后或前移几天的时间,nowdate为时间,delay为前移或后延的天数
+	 * <pre>DateUtils.getNextDay("Thu Jul 12 10:58:12 CST 2018","2") = Mon Jul 16 10:58:12 CST 2018</pre>
 	 */
 	public static String getNextDay(String nowdate, String delay) {
 		try {
@@ -836,6 +845,7 @@ public class DateUtils {
 	 * @param date
 	 * @param formater
 	 * @return
+	 * <pre>DateUtils.format("Thu Jul 12 10:58:12 CST 2018") = 2018-07-12</pre>
 	 */
 	public static String format(Date date) {
 		return format(date, FORMAT_DATE_STR);

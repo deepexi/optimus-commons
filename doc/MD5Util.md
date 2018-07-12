@@ -61,6 +61,7 @@ MD5工具类
  * **Parameters:** `input` — 
  * **Returns:** 
  * **Author:** daniel
+<pre>MD5Util.MD5("123") = 202cb962ac59075b964b07152d234b70</pre>
 
 ## `public static String generate(String password)`
 
@@ -69,6 +70,8 @@ MD5工具类
  * **Parameters:** `password` — 
  * **Returns:** 用例
  * **Author:** daniel
+<pre>MD5Util.generate("123") = 977b62f6a24ad40d50c9561505613305e45e44d11020180f</pre>
+
 
 ## `public static boolean verify(String password, String md5)`
 
@@ -79,6 +82,7 @@ MD5工具类
    * `md5` — 
  * **Returns:** 
  * **Author:** daniel
+<pre>MD5Util.verify("123","93ec9de5974cf3db6bd4126515cc9b64ed92485a1aa7a20d") = true</pre>
 
 ## `private static String md5Hex(String src)`
 

@@ -9,6 +9,7 @@ public class IdGenerator {
 
 	/**
 	 * 获取getObjectId
+	 * <pre>IdGenerator.getObjectId() = 5b46c3c4f5edc8f50207321b</pre>
 	 * @return
 	 */
 	public static String getObjectId() {
@@ -18,6 +19,7 @@ public class IdGenerator {
 	/**
 	 * 获取getUuId
 	 * @return
+	 * <pre>IdGenerator.getUuId() = 1a3ab72428a343c59bfc0197f3c90a09</pre>
 	 */
 	public static String getUuId() {
 		return UUID.randomUUID().toString().replace("-", "");

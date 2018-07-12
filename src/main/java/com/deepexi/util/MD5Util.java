@@ -160,6 +160,7 @@ public class MD5Util {
      * @return
      * @author daniel
      * @time 2016-6-11 下午8:00:28
+     * <pre>MD5Util.MD5("123") = 202cb962ac59075b964b07152d234b70</pre>
      */
     public static String MD5(String input) {
         MessageDigest md5 = null;
@@ -196,6 +197,7 @@ public class MD5Util {
      * @return	用例
      * @author daniel
      * @time 2016-6-11 下午8:45:04
+     * <pre>MD5Util.generate("123") = 977b62f6a24ad40d50c9561505613305e45e44d11020180f</pre>
      */
     public static String generate(String password) {
         Random r = new Random();
