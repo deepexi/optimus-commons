@@ -1,24 +1,46 @@
+### 方法概要 ###
 
-## `public class XmlUtil`
+所有方法  
+|限定符和类型|方法和说明|
+|--------|--------|
+|`static <T> T`|`xml2Bean(java.lang.String xml,        T t)`xml 转bean|
+|`static java.util.Map<java.lang.String,java.lang.String>`|`xml2Map(java.lang.String xml)`xml 转map|
 
-XmlUtil
+- 
+### 方法详细资料 ###
 
- * **Author:** yunzi7758
+- 
+#### xml2Map ####
 
-     <p>
-
-## `public static Map<String, String> xml2Map(String xml) throws Exception`
+```
+public static java.util.Map<java.lang.String,java.lang.String> xml2Map(java.lang.String xml)
+                                                                throws java.lang.Exception
+```
 
 xml 转map
 
- * **Parameters:** `xml` — 
- * **Returns:** 
- * **Exceptions:** `Exception` — 
+参数:
+:   `xml` - 
 
-## `public static <T> T xml2Bean(String xml, T t) throws Exception`
+返回:
+抛出:
+:   `java.lang.Exception`
+
+
+- 
+#### xml2Bean ####
+
+```
+public static <T> T xml2Bean(java.lang.String xml,
+                             T t)
+                      throws java.lang.Exception
+```
 
 xml 转bean
 
- * **Parameters:** `xml` — 
- * **Returns:** 
- * **Exceptions:** `Exception` — 
+参数:
+:   `xml` - 
+
+返回:
+抛出:
+:   `java.lang.Exception`

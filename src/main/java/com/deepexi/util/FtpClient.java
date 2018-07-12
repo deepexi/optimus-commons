@@ -22,7 +22,14 @@ public class FtpClient {
 	private FTPClient client;
 	private boolean isconnected = false;
 
-	public boolean connect(String host, int port, String username, String pwd) {
+	/**
+	 * 创建FtpClient实例
+	 * @param host
+	 * @param port
+	 * @param username
+	 * @param pwd
+	 */
+	public  FtpClient(String host, int port, String username, String pwd) {
 		if (StringUtils.isNotBlank(host) && port > 0) {
 			client = new FTPClient();
 			try {
@@ -43,21 +50,36 @@ public class FtpClient {
 				e.printStackTrace();
 			}
 		}
-		return isconnected;
 	}
 
+	/**
+	 * 切换工具目录
+	 * @param path
+	 * @throws IOException
+	 */
 	public void changeWorkingDirectory(String path) throws IOException {
 		if (isconnected) {
 			client.changeWorkingDirectory(path);
 		}
 	}
 
+	/**
+	 * 发送命令
+	 * @param cmd
+	 * @throws IOException
+	 */
 	public void sendSiteCommand(String cmd) throws IOException {
 		if (isconnected) {
 			client.sendSiteCommand(cmd);
 		}
 	}
 	
+	/**
+	 * 创建目录
+	 * @param path
+	 * @param fixedPath
+	 * @throws IOException
+	 */
 	public void makeDirs(String path,String fixedPath) throws IOException{
 		String[] paths = path.split("/");
 		if(isconnected){
@@ -74,6 +96,14 @@ public class FtpClient {
 		}
 	}
 
+	/**
+	 * 上传文件
+	 * @param path
+	 * @param fixedPath
+	 * @param ftpFileName
+	 * @param in
+	 * @throws IOException
+	 */
 	public void putFile(String path,String fixedPath,String ftpFileName, InputStream in) throws IOException {
 		try {
 			if(isconnected){
@@ -93,6 +123,13 @@ public class FtpClient {
 		}
 	}
 	
+	/**
+	 * 删除文件
+	 * @param path
+	 * @param fileName
+	 * @return
+	 * @throws IOException
+	 */
 	public boolean delete(String path,String fileName) throws IOException{
 		boolean result = false;
 		if(isconnected){
@@ -132,6 +169,10 @@ public class FtpClient {
 		}
 	}
 
+	/**
+	 * 断开连接
+	 * @throws IOException
+	 */
 	public void disconnect() throws IOException {
 		if (client != null && client.isConnected()) {
 			client.logout();

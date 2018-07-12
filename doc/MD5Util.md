@@ -1,93 +1,144 @@
-# Documentation
+### 方法概要 ###
 
-## `public class MD5Util`
+所有方法  
+|限定符和类型|方法和说明|
+|--------|--------|
+|`static java.lang.String`|`generate(java.lang.String password)`加盐MD5|
+|`static java.lang.String`|`getMD5ByFile(java.io.File file)`获取该文件的MD5值|
+|`static java.lang.String`|`getMD5ByInputStream(java.io.InputStream is)`获取该输入流的MD5值|
+|`static java.lang.String`|`getMd5ByString(java.lang.String sourceString)`获取该字符串的MD5值   用例: MD5Util.getMd5ByString("123") = 202cb962ac59075b964b07152d234b70  |
+|`static java.lang.String`|`getMD5Code(java.lang.String strObj)`前端jquery.md5.js加密 对应 后端MD5加密|
+|`static java.lang.String`|`MD5(java.lang.String input)`普通MD5|
+|`static boolean`|`verify(java.lang.String password,      java.lang.String md5)`校验加盐后是否和原文一致MD5Util.verify("123", "023681031e16a77873c39e00911a1fb9268f26938125306f")  = true|
 
-MD5工具类
+### 方法详细资料 ###
 
-## `public static String getMd5ByString(String sourceString)`
+- 
+#### getMd5ByString ####
+
+```
+public static java.lang.String getMd5ByString(java.lang.String sourceString)
+```
 
 获取该字符串的MD5值
 
-<pre> 用例: MD5Util.getMd5ByString("123") = 202cb962ac59075b964b07152d234b70 </pre>
 
- * **Parameters:** `sourceString` — 
- * **Returns:** 
+```
 
-## `public static String getMD5ByInputStream(InputStream is)`
+ 用例:
+ MD5Util.getMd5ByString("123") = 202cb962ac59075b964b07152d234b70
+ 
+ 
+```
+
+参数:
+:   `sourceString` - 
+
+返回:
+
+
+- 
+#### getMD5ByInputStream ####
+
+```
+public static java.lang.String getMD5ByInputStream(java.io.InputStream is)
+```
 
 获取该输入流的MD5值
 
- * **Parameters:** `is` — 
- * **Returns:** 
- * **Exceptions:**
-   * `NoSuchAlgorithmException` — 
-   * `IOException` — 
+参数:
+:   `is` - 
 
-## `public static String getMD5ByFile(File file)`
+返回:
+抛出:
+:   `java.security.NoSuchAlgorithmException`
+
+:   `java.io.IOException`
+
+
+- 
+#### getMD5ByFile ####
+
+```
+public static java.lang.String getMD5ByFile(java.io.File file)
+```
 
 获取该文件的MD5值
 
- * **Parameters:** `file` — 
- * **Returns:** 
- * **Exceptions:**
-   * `NoSuchAlgorithmException` — 
-   * `IOException` — 
+参数:
+:   `file` - 
 
-## `public static String getMD5Code(String strObj)`
+返回:
+抛出:
+:   `java.security.NoSuchAlgorithmException`
+
+:   `java.io.IOException`
+
+
+- 
+#### getMD5Code ####
+
+```
+public static java.lang.String getMD5Code(java.lang.String strObj)
+```
 
 前端jquery.md5.js加密 对应 后端MD5加密
 
- * **Parameters:** `strObj` — 
- * **Returns:** 
+参数:
+:   `strObj` - 
 
-## `private static String byteToArrayString(byte bByte)`
+返回:
 
-返回形式为数字跟字符串
 
- * **Parameters:** `bByte` — 
- * **Returns:** 
+- 
+#### MD5 ####
 
-## `private static String byteToString(byte[] bByte)`
-
-转换字节数组为16进制字串
-
- * **Parameters:** `bByte` — 
- * **Returns:** 
-
-## `public static String MD5(String input)`
+```
+public static java.lang.String MD5(java.lang.String input)
+```
 
 普通MD5
 
- * **Parameters:** `input` — 
- * **Returns:** 
- * **Author:** daniel
-<pre>MD5Util.MD5("123") = 202cb962ac59075b964b07152d234b70</pre>
+参数:
+:   `input` - 
 
-## `public static String generate(String password)`
+返回:
+
+
+- 
+#### generate ####
+
+```
+public static java.lang.String generate(java.lang.String password)
+```
 
 加盐MD5
 
- * **Parameters:** `password` — 
- * **Returns:** 用例
- * **Author:** daniel
-<pre>MD5Util.generate("123") = 977b62f6a24ad40d50c9561505613305e45e44d11020180f</pre>
+参数:
+:   `password` - 
+
+返回:
+:   用例
 
 
-## `public static boolean verify(String password, String md5)`
+- 
+#### verify ####
+
+```
+public static boolean verify(java.lang.String password,
+                             java.lang.String md5)
+```
 
 校验加盐后是否和原文一致
 
- * **Parameters:**
-   * `password` — 
-   * `md5` — 
- * **Returns:** 
- * **Author:** daniel
-<pre>MD5Util.verify("123","93ec9de5974cf3db6bd4126515cc9b64ed92485a1aa7a20d") = true</pre>
+```
+MD5Util.verify("123", "023681031e16a77873c39e00911a1fb9268f26938125306f")  = true
+```
 
-## `private static String md5Hex(String src)`
+参数:
+:   `password` - 
 
-获取十六进制字符串形式的MD5摘要
+:   `md5` - 
 
-## `public static void main(String[] args)`
+返回:
 
-test

@@ -65,7 +65,7 @@ public class DateUtils {
 	}
 
 	/**
-	 * yyyy-MM-dd
+	 * 将时间转换为 yyyy-MM-dd 格式的字符串
 	 * 
 	 * @param date
 	 * @return
@@ -74,6 +74,12 @@ public class DateUtils {
 		return toDateText(date, DATE_FORMAT);
 	}
 
+	/**
+	 * 将时间转换为 pattern 格式的字符串
+	 * @param date
+	 * @param pattern
+	 * @return
+	 */
 	public static String toDateText(Date date, String pattern) {
 		if (date == null || pattern == null) {
 			return null;
@@ -92,6 +98,12 @@ public class DateUtils {
 		return getDate(dateText, DATE_FORMAT);
 	}
 
+	/**
+	 * pattern格式字符串转为Date
+	 * @param dateText
+	 * @param pattern
+	 * @return
+	 */
 	public static Date getDate(String dateText, String pattern) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
 		try {
@@ -102,7 +114,8 @@ public class DateUtils {
 	}
 
 	/**
-	 * yyyy-MM-dd HH:mm
+	 * 
+	 * 将时间转换为 yyyy-MM-dd HH:mm 格式的字符串
 	 * 
 	 * @param date
 	 * @return
@@ -181,7 +194,7 @@ public class DateUtils {
 	 * @return
 	 * <pre>DateUtils.getTime() = 58</pre>
 	 */
-	public static String getTime() {
+	public static String getMinute() {
 		Date currentTime = new Date();
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String dateString = formatter.format(currentTime);
@@ -193,7 +206,7 @@ public class DateUtils {
 	/**
 	 * 二个小时时间间的差值,必须保证二个时间都是"HH:MM"的格式，返回字符型的分钟
 	 */
-	public static String getTwoHour(String st1, String st2) {
+	public static String getTwoHourInterval(String st1, String st2) {
 		String[] kk = null;
 		String[] jj = null;
 		kk = st1.split(":");
@@ -213,7 +226,7 @@ public class DateUtils {
 	/**
 	 * 得到二个日期间的间隔天数
 	 */
-	public static String getTwoDay(String sj1, String sj2) {
+	public static String getTwoDayInterval(String sj1, String sj2) {
 		SimpleDateFormat myFormatter = new SimpleDateFormat("yyyy-MM-dd");
 		long day = 0;
 		try {
@@ -227,14 +240,14 @@ public class DateUtils {
 	}
 
 	/**
-	 * 时间前推或后推分钟,其中JJ表示分钟.
+	 * 时间前推或后推分钟,其中interval表示分钟.
 	 */
-	public static String getPreTime(String sj1, String jj) {
+	public static String getTimeByInterval(String sj1, String interval) {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String mydate1 = "";
 		try {
 			Date date1 = format.parse(sj1);
-			long Time = (date1.getTime() / 1000) + Integer.parseInt(jj) * 60;
+			long Time = (date1.getTime() / 1000) + Integer.parseInt(interval) * 60;
 			date1.setTime(Time * 1000);
 			mydate1 = format.format(date1);
 		} catch (Exception e) {
@@ -246,7 +259,7 @@ public class DateUtils {
 	 * 得到一个时间延后或前移几天的时间,nowdate为时间,delay为前移或后延的天数
 	 * <pre>DateUtils.getNextDay("Thu Jul 12 10:58:12 CST 2018","2") = Mon Jul 16 10:58:12 CST 2018</pre>
 	 */
-	public static String getNextDay(String nowdate, String delay) {
+	public static String getDayByInterval(String nowdate, String delay) {
 		try {
 			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 			String mdate = "";
@@ -263,7 +276,7 @@ public class DateUtils {
 	/**
 	 * 得到一个时间延后或前移几天的时间,nowdate为时间,delay为前移或后延的天数
 	 */
-	public static Date getNextDay(Date d, int delay) {
+	public static Date getDayByInterval(Date d, int delay) {
 		try {
 			long myTime = (d.getTime() / 1000) + delay * 24 * 60 * 60;
 			d.setTime(myTime * 1000);
@@ -300,6 +313,12 @@ public class DateUtils {
 			return false;
 	}
 
+	/**
+	 * 获取下delay个年
+	 * @param date
+	 * @param delay
+	 * @return
+	 */
 	public static Date nextYear(Date date, Integer delay) {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
@@ -429,6 +448,11 @@ public class DateUtils {
 		System.out.println(df.format(new Date()));
 	}
 
+	/**
+	 * 获取当前时间对应的中午日期
+	 * @param sdate
+	 * @return
+	 */
 	public static String getWeekStr(String sdate) {
 		String str = "";
 		str = DateUtils.getWeek(sdate);
@@ -491,13 +515,15 @@ public class DateUtils {
 		Calendar c = Calendar.getInstance();
 		c.setTime(date);
 		int u = c.get(Calendar.DAY_OF_WEEK);
-		String newday = DateUtils.getNextDay(sdate, (1 - u) + "");
+		String newday = DateUtils.getDayByInterval(sdate, (1 - u) + "");
 		return newday;
 	}
 
+	
 	/**
-	 * 
-	 * @param args
+	 * 如果时间字符串符合yyyy-MM-dd hh:mm:ss yyyy-MM-dd格式返回true
+	 * @param date
+	 * @return
 	 */
 	public static boolean rightDate(String date) {
 

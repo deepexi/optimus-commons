@@ -17,7 +17,6 @@ import com.deepexi.util.impl.reflection.ClassUtil;
  * ClassName: ReflectionUtil <br/>
  * Function: 有关 <code>Reflection</code> 处理的工具类
  * 
- * @author Zhang Xu
  */
 public class ReflectionUtil {
 
@@ -62,6 +61,12 @@ public class ReflectionUtil {
         return methods.toArray(new Method[methods.size()]);
     }
 
+    /**
+     * 获取类的所有构造方法
+     * @param clazz
+     * @param accessible
+     * @return
+     */
     public static Constructor<?>[] getAllConstructorsOfClass(final Class<?> clazz,
             boolean accessible) {
         if (clazz == null) {
@@ -77,6 +82,11 @@ public class ReflectionUtil {
 
     }
 
+    /**
+     * 根据clazz获取实例对象
+     * @param clazz
+     * @return
+     */
     public static <T> T newInstance(final Class<T> clazz) {
         Constructor<?>[] constructors = getAllConstructorsOfClass(clazz, true);
         // impossible ?
