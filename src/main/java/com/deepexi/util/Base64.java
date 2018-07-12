@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 
+ * Base64
  *
  */
 public class Base64 {
@@ -67,6 +67,20 @@ public class Base64 {
 		try {
 			bytes = decode_base64(value, 100);
 			decode = new String(bytes, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			logger.error("String中值解密失败！",e);
+		}
+		return decode;
+	}
+	/**
+	 * String中值解密
+	 */
+	public static String decodeString(String value,String code) {
+		byte bytes[];
+		String decode = "";
+		try {
+			bytes = decode_base64(value, 100);
+			decode = new String(bytes, code);
 		} catch (UnsupportedEncodingException e) {
 			logger.error("String中值解密失败！",e);
 		}
