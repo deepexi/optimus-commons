@@ -6,16 +6,51 @@ import java.util.List;
 
 public class ArrayUtils {
 
+	/**
+	 * 将数组array以,拼接为字符串
+	 * 
+	 * 
+	 * @param array
+	 * @return
+	 */
 	public static String toString(Integer[] array) {
+		return toString(array, ",");
+	}
+	
+	/**
+	 * 将数组array以split拼接为字符串
+	 * @param array
+	 * @param split
+	 * @return
+	 */
+	public static String toString(Integer[] array,String split) {
 		StringBuffer sb = new StringBuffer();
-		for (Object obj : array) {
-			sb.append(obj.toString()).append(",");
+		for (int i = 0; i < array.length; i++) {
+			sb.append(array[i].toString());
+			if (i<array.length-1) {
+				sb.append(split);
+			}
 		}
 		return sb.toString();
 	}
 
+	/**
+	 * 将字符串str以,切割为数组返回
+	 * @param str
+	 * @return
+	 */
 	public static Integer[] toArray(String str) {
-		String[] tmps = str.split(",");
+		return toArray(str, ",");
+	}
+	
+	/**
+	 * 将字符串str以split切割为数组返回
+	 * @param str
+	 * @param split
+	 * @return
+	 */
+	public static Integer[] toArray(String str,String split) {
+		String[] tmps = str.split(split);
 		Integer[] result = new Integer[tmps.length];
 		for (int i = 0; i < tmps.length; i++) {
 			result[i] = Integer.parseInt(tmps[i]);
