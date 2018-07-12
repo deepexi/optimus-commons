@@ -10,7 +10,6 @@ import java.util.Map;
  * ClassName: CollectionUtil <br/>
  * Function: 有关集合处理的工具类，通过静态方法消除泛型编译警告。
  * 
- * @author Zhang Xu
  */
 public class CollectionUtil {
 
@@ -118,6 +117,11 @@ public class CollectionUtil {
         return new HashMap<K, V>(initialCapacity, loadFactor);
     }
     
+    /**
+     * 将List<List<V>>转为List<V>
+     * @param list
+     * @return
+     */
     public static <V> List<V> convertList(List<List<V>> list){
     	List<V> result = new ArrayList<V>();
     	for(List<V> data:list){
