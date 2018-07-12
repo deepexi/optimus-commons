@@ -223,6 +223,7 @@ public class MD5Util {
     /**
      * 校验加盐后是否和原文一致
      *
+     *<pre>MD5Util.verify("123", "023681031e16a77873c39e00911a1fb9268f26938125306f")  = true</pre>
      * @param password
      * @param md5
      * @return
@@ -271,6 +272,7 @@ public class MD5Util {
         System.out.println("加盐后MD5：" + ciphertext);
         System.out.println("是否是同一字符串:" + MD5Util.verify(plaintext, ciphertext));
 
+        System.out.println("MD5Util.verify(\""+plaintext+ "\", \""+ ciphertext+"\")  = "+MD5Util.verify(plaintext, ciphertext));
     }
 
 	
