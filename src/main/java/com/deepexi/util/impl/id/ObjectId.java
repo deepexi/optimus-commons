@@ -243,14 +243,14 @@ public class ObjectId implements Comparable<ObjectId>, java.io.Serializable {
 		Logger logger2 = ObjectId.LOGGER;
 		AtomicInteger nextInc2 = ObjectId.nextInc;
 		int genmachine2 = ObjectId.GENMACHINE;
-		return Objects.equal(this.serialVersionUID, serialversionuid2) &&
-                Objects.equal(this.LOGGER, logger2) &&
+		return Objects.equal(serialVersionUID, serialversionuid2) &&
+                Objects.equal(LOGGER, logger2) &&
                 Objects.equal(this.time, that.time) &&
                 Objects.equal(this.machine, that.machine) &&
                 Objects.equal(this.inc, that.inc) &&
                 Objects.equal(this.snew, that.snew) &&
-                Objects.equal(this.nextInc, nextInc2) &&
-                Objects.equal(this.GENMACHINE, genmachine2);
+                Objects.equal(nextInc, nextInc2) &&
+                Objects.equal(GENMACHINE, genmachine2);
     }
  
     @Override

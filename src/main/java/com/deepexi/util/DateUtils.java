@@ -158,9 +158,9 @@ public class DateUtils {
 	 */
 	public static Date getLastDate(long day) {
 		Date date = new Date();
-		long date_3_hm = date.getTime() - 3600000 * 34 * day;
-		Date date_3_hm_date = new Date(date_3_hm);
-		return date_3_hm_date;
+		long date3hm = date.getTime() - 3600000 * 34 * day;
+		Date date3hmdate = new Date(date3hm);
+		return date3hmdate;
 	}
 
 	/**
@@ -211,9 +211,9 @@ public class DateUtils {
 		String[] jj = null;
 		kk = st1.split(":");
 		jj = st2.split(":");
-		if (Integer.parseInt(kk[0]) < Integer.parseInt(jj[0]))
+		if (Integer.parseInt(kk[0]) < Integer.parseInt(jj[0])) {
 			return "0";
-		else {
+		} else {
 			double y = Double.parseDouble(kk[0]) + Double.parseDouble(kk[1]) / 60;
 			double u = Double.parseDouble(jj[0]) + Double.parseDouble(jj[1]) / 60;
 			return (y - u) > 0 ? y - u + "" : "0";
@@ -244,8 +244,8 @@ public class DateUtils {
 		String mydate1 = "";
 		try {
 			Date date1 = format.parse(sj1);
-			long Time = (date1.getTime() / 1000) + Integer.parseInt(interval) * 60;
-			date1.setTime(Time * 1000);
+			long time = (date1.getTime() / 1000) + Integer.parseInt(interval) * 60;
+			date1.setTime(time * 1000);
 			mydate1 = format.format(date1);
 		} catch (Exception e) {
 		}
@@ -402,19 +402,19 @@ public class DateUtils {
 		Date dd = getDate(sdate);
 		Calendar c = Calendar.getInstance();
 		c.setTime(dd);
-		if (num.equals("1")) {
+		if ("1".equals(num)) {
 			c.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
-		} else if (num.equals("2")) {
+		} else if ("2".equals(num)) {
 			c.set(Calendar.DAY_OF_WEEK, Calendar.TUESDAY);
-		} else if (num.equals("3")) {
+		} else if ("3".equals(num)) {
 			c.set(Calendar.DAY_OF_WEEK, Calendar.WEDNESDAY);
-		} else if (num.equals("4")) {
+		} else if ("4".equals(num)) {
 			c.set(Calendar.DAY_OF_WEEK, Calendar.THURSDAY);
-		} else if (num.equals("5")) {
+		} else if ("5".equals(num)) {
 			c.set(Calendar.DAY_OF_WEEK, Calendar.FRIDAY);
-		} else if (num.equals("6")) {
+		} else if ("6".equals(num)) {
 			c.set(Calendar.DAY_OF_WEEK, Calendar.SATURDAY);
-		} else if (num.equals("0")) {
+		} else if ("0".equals(num)) {
 			c.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
 		}
 		return new SimpleDateFormat("yyyy-MM-dd").format(c.getTime());
@@ -482,10 +482,10 @@ public class DateUtils {
 	 * @return
 	 */
 	public static long getDays(String date1, String date2) {
-		if (date1 == null || date1.equals("")) {
+		if (date1 == null || "".equals(date1)) {
 			return 0;
 		}
-		if (date2 == null || date2.equals("")) {
+		if (date2 == null || "".equals(date2)) {
 			return 0;
 		}
 		// 转换为标准时间
@@ -581,9 +581,9 @@ public class DateUtils {
 	 * @return
 	 */
 	public static int getDifferYear(String date1, String date2) {
-		Date dateTime1_tmp = DateUtils.parse(date1, "yyyy-MM-dd");
-		Date dateTime2_tmp = DateUtils.parse(date2, "yyyy-MM-dd");
-		return getDifferYear(dateTime1_tmp, dateTime2_tmp);
+		Date dateTime1tmp = DateUtils.parse(date1, "yyyy-MM-dd");
+		Date dateTime2tmp = DateUtils.parse(date2, "yyyy-MM-dd");
+		return getDifferYear(dateTime1tmp, dateTime2tmp);
 	}
 
 	/**
@@ -614,9 +614,9 @@ public class DateUtils {
 	 * @return
 	 */
 	public static int getDifferMonth(String date1, String date2) {
-		Date dateTime1_tmp = DateUtils.parse(date1, "yyyy-MM-dd");
-		Date dateTime2_tmp = DateUtils.parse(date2, "yyyy-MM-dd");
-		return getDifferMonth(dateTime1_tmp, dateTime2_tmp);
+		Date dateTime1tmp = DateUtils.parse(date1, "yyyy-MM-dd");
+		Date dateTime2tmp = DateUtils.parse(date2, "yyyy-MM-dd");
+		return getDifferMonth(dateTime1tmp, dateTime2tmp);
 	}
 
 	/**
@@ -641,10 +641,10 @@ public class DateUtils {
 	 * @return
 	 */
 	public static int getDifferDay(String date1, String date2) {
-		Date dateTime1_tmp = DateUtils.parse(date1, "yyyy-MM-dd");
-		Date dateTime2_tmp = DateUtils.parse(date2, "yyyy-MM-dd");
-		Long d1 = dateTime1_tmp.getTime();
-		Long d2 = dateTime2_tmp.getTime();
+		Date dateTime1tmp = DateUtils.parse(date1, "yyyy-MM-dd");
+		Date dateTime2tmp = DateUtils.parse(date2, "yyyy-MM-dd");
+		Long d1 = dateTime1tmp.getTime();
+		Long d2 = dateTime2tmp.getTime();
 		return (int) ((d2 - d1) / millionSecondsOfDay);
 	}
 
@@ -660,10 +660,10 @@ public class DateUtils {
 	 * @return resultHM[hours,mins]
 	 */
 	public static int[] getDifferHourAndMinute(String date1, String time1, String date2, String time2) {
-		Date dateTime1_tmp = DateUtils.parse(date1 + " " + time1, "yyyy-MM-dd HH:mm");
-		Date dateTime2_tmp = DateUtils.parse(date2 + " " + time2, "yyyy-MM-dd HH:mm");
-		Long d2 = dateTime2_tmp.getTime();
-		Long d1 = dateTime1_tmp.getTime();
+		Date dateTime1tmp = DateUtils.parse(date1 + " " + time1, "yyyy-MM-dd HH:mm");
+		Date dateTime2tmp = DateUtils.parse(date2 + " " + time2, "yyyy-MM-dd HH:mm");
+		Long d2 = dateTime2tmp.getTime();
+		Long d1 = dateTime1tmp.getTime();
 		int hours = (int) ((d2 - d1) / millionSecondsOfHour);
 		int mins = (int) ((d2 - d1) % millionSecondsOfHour);
 		mins = mins / 60000;
@@ -704,10 +704,10 @@ public class DateUtils {
 	 * @return resultHM[hours,mins]
 	 */
 	public static int[] getDifferHourAndMinute(String date1, String date2) {
-		Date dateTime1_tmp = DateUtils.parse(date1, "yyyy-MM-dd HH:mm");
-		Date dateTime2_tmp = DateUtils.parse(date2, "yyyy-MM-dd HH:mm");
-		Long d2 = dateTime2_tmp.getTime();
-		Long d1 = dateTime1_tmp.getTime();
+		Date dateTime1tmp = DateUtils.parse(date1, "yyyy-MM-dd HH:mm");
+		Date dateTime2tmp = DateUtils.parse(date2, "yyyy-MM-dd HH:mm");
+		Long d2 = dateTime2tmp.getTime();
+		Long d1 = dateTime1tmp.getTime();
 		int hours = (int) ((d2 - d1) / millionSecondsOfHour);
 		int mins = (int) ((d2 - d1) % millionSecondsOfHour);
 		mins = mins / 60000;
@@ -745,10 +745,10 @@ public class DateUtils {
 	 * @return
 	 */
 	public static int getDifferHour(String date1, String date2) {
-		Date dateTime1_tmp = DateUtils.parse(date1, "yyyy-MM-dd HH:mm");
-		Date dateTime2_tmp = DateUtils.parse(date2, "yyyy-MM-dd HH:mm");
-		Long d2 = dateTime2_tmp.getTime();
-		Long d1 = dateTime1_tmp.getTime();
+		Date dateTime1tmp = DateUtils.parse(date1, "yyyy-MM-dd HH:mm");
+		Date dateTime2tmp = DateUtils.parse(date2, "yyyy-MM-dd HH:mm");
+		Long d2 = dateTime2tmp.getTime();
+		Long d1 = dateTime1tmp.getTime();
 		int hours = (int) ((d2 - d1) / millionSecondsOfHour);
 		return hours;
 	}
@@ -763,9 +763,9 @@ public class DateUtils {
 	 * @date 2014年1月7日下午1:58:10
 	 */
 	public static int getDifferMinute(String date1, String date2) {
-		Date dateTime1_tmp = DateUtils.parse(date1, "yyyy-MM-dd HH:mm");
-		Date dateTime2_tmp = DateUtils.parse(date2, "yyyy-MM-dd HH:mm");
-		return getDifferMinute(dateTime1_tmp, dateTime2_tmp);
+		Date dateTime1tmp = DateUtils.parse(date1, "yyyy-MM-dd HH:mm");
+		Date dateTime2tmp = DateUtils.parse(date2, "yyyy-MM-dd HH:mm");
+		return getDifferMinute(dateTime1tmp, dateTime2tmp);
 	}
 
 	/**
@@ -1133,7 +1133,7 @@ public class DateUtils {
 	 *            String类型（格式为：yyyy-MM-dd）
 	 * @return
 	 */
-	public static boolean DateisBetweenDateByClosedInterval(Date curDate, String sDate1, String date2) {
+	public static boolean dateisBetweenDateByClosedInterval(Date curDate, String sDate1, String date2) {
 		String nowDate = DateUtils.format(curDate, "yyyy-MM-dd");
 		if (java.sql.Date.valueOf(sDate1).before(java.sql.Date.valueOf(date2))
 				|| java.sql.Date.valueOf(sDate1).equals(java.sql.Date.valueOf(date2))) {
@@ -1166,7 +1166,7 @@ public class DateUtils {
 	 *            String类型（格式为：yyyy-MM-dd）
 	 * @return
 	 */
-	public static boolean DateisBetweenDateByOpenInterval(Date curDate, String sDate1, String date2) {
+	public static boolean dateisBetweenDateByOpenInterval(Date curDate, String sDate1, String date2) {
 		String nowDate = DateUtils.format(curDate, "yyyy-MM-dd");
 		if (java.sql.Date.valueOf(sDate1).before(java.sql.Date.valueOf(date2))) {
 			if (java.sql.Date.valueOf(nowDate).after(java.sql.Date.valueOf(sDate1))

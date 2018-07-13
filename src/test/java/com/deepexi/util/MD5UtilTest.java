@@ -17,7 +17,7 @@ public class MD5UtilTest {
 
         System.out.println("原始：" + plaintext);
         System.out.println(MD5Util.getMd5ByString("123"));
-        System.out.println("普通MD5后：" + MD5Util.MD5(plaintext));
+//        System.out.println("普通MD5后：" + MD5Util.MD5(plaintext));
 
         String ciphertext = MD5Util.generate(plaintext);
         System.out.println("加盐后MD5：" + ciphertext);

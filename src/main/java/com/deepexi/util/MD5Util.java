@@ -162,7 +162,7 @@ public class MD5Util {
      * @time 2016-6-11 下午8:00:28
      * <pre>MD5Util.MD5("123") = 202cb962ac59075b964b07152d234b70</pre>
      */
-    public static String MD5(String input) {
+    /*public static String MD5(String input) {
         MessageDigest md5 = null;
         try {
             md5 = MessageDigest.getInstance("MD5");
@@ -189,7 +189,7 @@ public class MD5Util {
         }
         return hexValue.toString();
 
-    }
+    }*/
 
 
     /**
@@ -270,7 +270,7 @@ public class MD5Util {
 
         System.out.println("原始：" + plaintext);
         System.out.println(MD5Util.getMd5ByString("123"));
-        System.out.println("普通MD5后：" + MD5Util.MD5(plaintext));
+//        System.out.println("普通MD5后：" + MD5Util.MD5(plaintext));
 
         String ciphertext = MD5Util.generate(plaintext);
         System.out.println("加盐后MD5：" + ciphertext);

@@ -34,7 +34,7 @@ public class Base64 {
 		byte bytes[];
 		try {
 			bytes = value.getBytes("utf-8");
-			encode = encode_base64(bytes, bytes.length);
+			encode = encodebase64(bytes, bytes.length);
 		} catch (UnsupportedEncodingException e) {
 			logger.error("String中的值加密失败！",e);
 		}
@@ -52,7 +52,7 @@ public class Base64 {
 		byte bytes[];
 		try {
 			bytes = value.getBytes(code);
-			encode = encode_base64(bytes, bytes.length);
+			encode = encodebase64(bytes, bytes.length);
 		} catch (UnsupportedEncodingException e) {
 			logger.error("对字符串指定编码加密失败！",e);
 		}
@@ -66,7 +66,7 @@ public class Base64 {
 		byte bytes[];
 		String decode = "";
 		try {
-			bytes = decode_base64(value, 100);
+			bytes = decodebase64(value, 100);
 			decode = new String(bytes, "UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			logger.error("String中值解密失败！",e);
@@ -80,7 +80,7 @@ public class Base64 {
 		byte bytes[];
 		String decode = "";
 		try {
-			bytes = decode_base64(value, 100);
+			bytes = decodebase64(value, 100);
 			decode = new String(bytes, code);
 		} catch (UnsupportedEncodingException e) {
 			logger.error("String中值解密失败！",e);
@@ -88,7 +88,7 @@ public class Base64 {
 		return decode;
 	}
 
-	private static String encode_base64(byte d[], int len) throws IllegalArgumentException {
+	private static String encodebase64(byte d[], int len) throws IllegalArgumentException {
 		int off = 0;
 		StringBuffer rs = new StringBuffer();
 		int c1, c2;
@@ -128,7 +128,7 @@ public class Base64 {
 		return index_64[(int) x];
 	}
 
-	private static byte[] decode_base64(String s, int maxolen) throws IllegalArgumentException {
+	private static byte[] decodebase64(String s, int maxolen) throws IllegalArgumentException {
 		StringBuffer rs = new StringBuffer();
 		int off = 0, slen = s.length(), olen = 0;
 		byte ret[];
