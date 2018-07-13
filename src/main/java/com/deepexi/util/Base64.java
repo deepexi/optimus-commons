@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Base64
+ * @author yunzi7758
  *
  */
 public class Base64 {
@@ -92,8 +93,9 @@ public class Base64 {
 		StringBuffer rs = new StringBuffer();
 		int c1, c2;
 
-		if (len <= 0 || len > d.length)
+		if (len <= 0 || len > d.length) {
 			throw new IllegalArgumentException("Invalid len");
+		}
 
 		while (off < len) {
 			c1 = d[off++] & 0xff;
@@ -120,8 +122,9 @@ public class Base64 {
 	}
 
 	private static byte char64(char x) {
-		if ((int) x < 0 || (int) x > index_64.length)
+		if ((int) x < 0 || (int) x > index_64.length) {
 			return -1;
+		}
 		return index_64[(int) x];
 	}
 
@@ -131,26 +134,31 @@ public class Base64 {
 		byte ret[];
 		byte c1, c2, c3, c4, o;
 
-		if (maxolen <= 0)
+		if (maxolen <= 0) {
 			throw new IllegalArgumentException("Invalid maxolen");
+		}
 		while (off < slen - 1 && olen < maxolen) {
 			c1 = char64(s.charAt(off++));
 			c2 = char64(s.charAt(off++));
-			if (c1 == -1 || c2 == -1)
+			if (c1 == -1 || c2 == -1) {
 				break;
+			}
 			o = (byte) (c1 << 2);
 			o |= (c2 & 0x30) >> 4;
 			rs.append((char) o);
-			if (++olen >= maxolen || off >= slen)
+			if (++olen >= maxolen || off >= slen) {
 				break;
+			}
 			c3 = char64(s.charAt(off++));
-			if (c3 == -1)
+			if (c3 == -1) {
 				break;
+			}
 			o = (byte) ((c2 & 0x0f) << 4);
 			o |= (c3 & 0x3c) >> 2;
 			rs.append((char) o);
-			if (++olen >= maxolen || off >= slen)
+			if (++olen >= maxolen || off >= slen) {
 				break;
+			}
 			c4 = char64(s.charAt(off++));
 			o = (byte) ((c3 & 0x03) << 6);
 			o |= c4;
@@ -159,8 +167,9 @@ public class Base64 {
 		}
 
 		ret = new byte[olen];
-		for (off = 0; off < olen; off++)
+		for (off = 0; off < olen; off++) {
 			ret[off] = (byte) rs.charAt(off);
+		}
 		return ret;
 	}
 	

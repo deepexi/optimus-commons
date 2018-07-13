@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * ArrayUtils
+ * @author yunzi7758
+ *
+ */
 public class ArrayUtils {
 
 	/**
