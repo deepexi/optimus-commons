@@ -5,6 +5,11 @@ import java.util.Map;
 
 import org.junit.Test;
 
+/**
+ * 字符串表达式执行工具测试类
+ * @author yunzi7758
+ *
+ */
 public class StringExpressionUtilTest {
 
 	@Test

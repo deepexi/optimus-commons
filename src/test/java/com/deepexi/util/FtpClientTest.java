@@ -7,6 +7,11 @@ import java.io.FileOutputStream;
 
 import org.junit.Test;
 
+/**
+ * ftp工具测试类
+ * @author yunzi7758
+ *
+ */
 public class FtpClientTest {
 
 	@Test

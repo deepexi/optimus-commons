@@ -2,6 +2,12 @@ package com.deepexi.util;
 
 import org.junit.Test;
 
+
+/**
+ * md5工具测试类
+ * @author yunzi7758
+ *
+ */
 public class MD5UtilTest {
 
 	@Test

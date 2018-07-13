@@ -7,6 +7,12 @@ import java.util.Map;
 
 import org.junit.Test;
 
+
+/**
+ * 集合工具测试类
+ * @author yunzi7758
+ *
+ */
 public class CollectionUtilTest {
 
 	@Test

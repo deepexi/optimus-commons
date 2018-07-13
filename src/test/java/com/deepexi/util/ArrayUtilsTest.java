@@ -5,6 +5,11 @@ import java.util.List;
 
 import org.junit.Test;
 
+/**
+ * 数组工具测试类
+ * @author yunzi7758
+ *
+ */
 public class ArrayUtilsTest {
 
 	

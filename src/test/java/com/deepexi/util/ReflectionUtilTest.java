@@ -5,6 +5,11 @@ import java.lang.reflect.Method;
 
 import org.junit.Test;
 
+/**
+ * 反射测试类
+ * @author yunzi7758
+ *
+ */
 public class ReflectionUtilTest {
 
 	

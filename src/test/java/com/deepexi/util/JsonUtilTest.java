@@ -5,6 +5,11 @@ import java.util.Map;
 
 import org.junit.Test;
 
+/**
+ * json工具测试类
+ * @author yunzi7758
+ *
+ */
 public class JsonUtilTest {
 
 	@Test

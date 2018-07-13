@@ -6,6 +6,11 @@ import java.io.InputStream;
 
 import org.junit.Test;
 
+/**
+ * 文件工具测试类
+ * @author yunzi7758
+ *
+ */
 public class FileUtilsTest {
 
 	@Test

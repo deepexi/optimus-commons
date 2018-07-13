@@ -1,5 +1,11 @@
 package com.deepexi.util;
 
+
+/**
+ * 测试bean
+ * @author yunzi7758
+ *
+ */
 public class TestBean {
 
 	private String strfield;

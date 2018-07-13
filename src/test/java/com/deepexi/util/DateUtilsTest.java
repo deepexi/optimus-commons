@@ -4,6 +4,11 @@ import java.util.Date;
 
 import org.junit.Test;
 
+/**
+ * 时间工具测试类
+ * @author yunzi7758
+ *
+ */
 public class DateUtilsTest {
 
 	@Test

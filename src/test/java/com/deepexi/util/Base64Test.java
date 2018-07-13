@@ -2,6 +2,11 @@ package com.deepexi.util;
 
 import org.junit.Test;
 
+/**
+ * base64测试类
+ * @author yunzi7758
+ *
+ */
 public class Base64Test {
 
 	@Test
