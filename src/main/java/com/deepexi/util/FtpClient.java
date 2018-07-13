@@ -2,6 +2,8 @@ package com.deepexi.util;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -29,7 +31,7 @@ public class FtpClient {
 	 * @param username
 	 * @param pwd
 	 */
-	public  FtpClient(String host, int port, String username, String pwd) {
+	public boolean connect(String host, int port, String username, String pwd) {
 		if (StringUtils.isNotBlank(host) && port > 0) {
 			client = new FTPClient();
 			try {
@@ -50,6 +52,7 @@ public class FtpClient {
 				e.printStackTrace();
 			}
 		}
+		return isconnected;
 	}
 
 	/**
@@ -77,39 +80,121 @@ public class FtpClient {
 	/**
 	 * 创建目录
 	 * @param path
-	 * @param fixedPath
+	 * @param basePath
 	 * @throws IOException
 	 */
-	public void makeDirs(String path,String fixedPath) throws IOException{
+	public void makeDirs(String path,String basePath) throws IOException{
 		String[] paths = path.split("/");
 		if(isconnected){
-			client.changeWorkingDirectory("/"+fixedPath);
-			String pdir = "/";
+			client.changeWorkingDirectory("/"+basePath);
+			/*String pdir = "/";
 			for(String p:paths){
 				if(client.makeDirectory(p)){
 					pdir+=p+"/";
-					client.changeWorkingDirectory(pdir);
+					client.changeWorkingDirectory("/"+basePath+pdir);
 				}else{
 					break;
 				}
-			}
+			}*/
+			client.makeDirectory(path);
 		}
 	}
 
 	/**
 	 * 上传文件
+	 * @param host
+	 * @param port
+	 * @param username
+	 * @param pwd
 	 * @param path
-	 * @param fixedPath
+	 * @param basePath
+	 * @param ftpFileName
+	 * @param in
+	 */
+	public static void putFile(String host, int port, String username, String pwd
+			,String path,String basePath,String ftpFileName, InputStream in) {
+		FtpClient ftpClient = new FtpClient();
+		if(ftpClient.connect(host, port, username, pwd)){
+			try {
+				ftpClient.putFile(path, basePath, ftpFileName, in);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}finally {
+				try {
+					ftpClient.disconnect();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	/**
+	 * 下载文件
+	 * @param host
+	 * @param port
+	 * @param username
+	 * @param pwd
+	 * @param path
+	 * @param fileName
+	 * @param os
+	 */
+	public static void downLoadFiles(String host, int port, String username, String pwd
+			,String path,String fileName,OutputStream os) {
+		FtpClient ftpClient = new FtpClient();
+		if(ftpClient.connect(host, port, username, pwd)){
+			try {
+				ftpClient.downLoadFiles(path, fileName,"", os);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				try {
+					ftpClient.disconnect();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	/**
+	 * 删除文件
+	 * @param host
+	 * @param port
+	 * @param username
+	 * @param pwd
+	 * @param path
+	 * @param fileName
+	 */
+	public static void delete(String host, int port, String username, String pwd
+			,String path,String fileName) {
+		FtpClient ftpClient = new FtpClient();
+		if(ftpClient.connect(host, port, username, pwd)){
+			try {
+				ftpClient.delete(path, fileName);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}finally {
+				try {
+					ftpClient.disconnect();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	/**
+	 * 上传文件
+	 * @param path
+	 * @param basePath
 	 * @param ftpFileName
 	 * @param in
 	 * @throws IOException
 	 */
-	public void putFile(String path,String fixedPath,String ftpFileName, InputStream in) throws IOException {
+	public void putFile(String path,String basePath,String ftpFileName, InputStream in) throws IOException {
 		try {
 			if(isconnected){
 				client.enterLocalPassiveMode();
-				makeDirs(path,fixedPath);
-				client.changeWorkingDirectory("/"+fixedPath+path);
+				makeDirs(path,basePath);
+				client.changeWorkingDirectory("/"+basePath+path);
 				if (!client.storeFile(ftpFileName, in)) {
 					throw new IOException("Can't upload file '" + ftpFileName
 							+ "' to FTP server. Check FTP permissions and path.");
