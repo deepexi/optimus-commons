@@ -1,5 +1,6 @@
 package com.deepexi.util;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.jexl2.Expression;
@@ -34,4 +35,51 @@ public class StringExpressionUtil {
         }  
         return e.evaluate(jc);  
 	}  
+	
+	
+	/**
+	 * 根据class执行：clz.methodName(params)
+	 * @param clz
+	 * @param methodName
+	 * @param params
+	 * @return
+	 */
+	public static <T> Object invoke(Class<T> clz,String methodName,Object... params){
+		T obj = ReflectionUtil.newInstance(clz);
+		return invoke(obj, methodName, params);
+	}
+	
+	/**
+	 * 根据对象执行：obj.methodName(params)
+	 * @param obj
+	 * @param methodName
+	 * @param params
+	 * @return
+	 */
+	public static  Object invoke(Object obj,String methodName,Object... params){
+		Map<String,Object> map = new HashMap<>();
+		String jexlExp = "";
+		
+		
+		map.put("obj", obj);
+		jexlExp += "obj."+methodName;
+		
+		if (params == null || params.length == 0) {
+			jexlExp += "()";
+		} else {
+
+			jexlExp += "(";
+			for (int i = 0; i < params.length; i++) {
+				map.put("p"+i, params[i]);
+				if (i<params.length-1) {
+					jexlExp += "p"+i+",";
+				}else {
+					jexlExp += "p"+i+")";
+				}
+			}
+		}
+		
+		
+		return exec(jexlExp, map);
+	}
 }

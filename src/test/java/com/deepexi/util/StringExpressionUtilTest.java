@@ -28,5 +28,25 @@ public class StringExpressionUtilTest {
 		StringExpressionUtil.exec("bean.setIntfield(intfield)", map);
 		
 		System.out.println(bean);
+		
+		
+		
+	}
+	
+	@Test
+	public void stringInvokeclazz() {
+		Object invoke = StringExpressionUtil.invoke(StringUtil.class, "toUpperCaseFirstOne", "adfd");
+		System.out.println(invoke);
+		Object invoke2 = StringExpressionUtil.invoke(TestBean.class, "getIntfield");
+		System.out.println(invoke2);
+	}
+	@Test
+	public void stringInvokeobj() {
+		
+		TestBean testBean = new TestBean("aaa", 22);
+		
+		Object invoke = StringExpressionUtil.invoke(testBean, "getIntfield");
+		System.out.println(invoke);
+		
 	}
 }
