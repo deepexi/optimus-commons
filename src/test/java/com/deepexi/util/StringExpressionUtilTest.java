@@ -38,7 +38,7 @@ public class StringExpressionUtilTest {
 		Object invoke = StringExpressionUtil.invoke(StringUtil.class, "toUpperCaseFirstOne", "adfd");
 		System.out.println(invoke);
 		Object invoke2 = StringExpressionUtil.invoke(TestBean.class, "getIntfield");
-		System.out.println(invoke2);
+		System.out.println(invoke2+"==");
 	}
 	@Test
 	public void stringInvokeobj() {

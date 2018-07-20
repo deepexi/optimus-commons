@@ -13,6 +13,7 @@ public class DateUtilsTest {
 
 	@Test
 	public void format() {
+		System.out.println(new Date());
 		System.out.println(DateUtils.format(new Date()));
 		System.out.println(DateUtils.format(new Date(), DateUtils.DEFAULT_DATE_TIME_FORMAT));
 	}
@@ -22,6 +23,9 @@ public class DateUtilsTest {
 		System.out.println(DateUtils.parse(DateUtils.format(DateUtils.now())));
 		System.out.println(DateUtils.parse(DateUtils.format(DateUtils.now(), DateUtils.DEFAULT_DATE_TIME_FORMAT)));
 		System.out.println(DateUtils.parse(DateUtils.format(DateUtils.now(), DateUtils.DEFAULT_DATE_TIME_FORMAT)
+				, DateUtils.DEFAULT_DATE_TIME_FORMAT));
+		
+		System.out.println(DateUtils.parse("Jul 20, 2018 12:02:36 PM"
 				, DateUtils.DEFAULT_DATE_TIME_FORMAT));
 	}
 	
