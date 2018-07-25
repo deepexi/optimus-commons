@@ -4,13 +4,13 @@
 
     <groupId>com.deepexi.common</groupId>
     <artifactId>optimus-common</artifactId>
-    <version>1.1.0-SNAPSHOT</version>
+    <version>1.1.1-SNAPSHOT</version>
 
     <packaging>jar</packaging>
 
 
     <properties>
-        <jackson.version>2.9.6</jackson.version>
+        <jackson.version>2.8.10</jackson.version>
         <fastjson.version>1.2.47</fastjson.version>
         <spring.boot.version>2.0.3.RELEASE</spring.boot.version>
     </properties>
@@ -76,6 +76,7 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
             <version>${jackson.version}</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
@@ -107,6 +108,12 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-jexl</artifactId>
             <version>2.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
@@ -128,6 +135,12 @@
             <artifactId>org.apache.commons.collections</artifactId>
             <version>3.2.1</version>
         </dependency> -->
+
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.13</version>
+        </dependency>
     </dependencies>
 
 
