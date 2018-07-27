@@ -722,7 +722,7 @@ public class DateUtils {
 	 * 计算2个时间之间的相差的小时数(Date,Date) date1<date2
 	 * 
 	 * @param Date
-	 *            date1
+	 *           date1
 	 * @param Date
 	 *            date2
 	 * @return
