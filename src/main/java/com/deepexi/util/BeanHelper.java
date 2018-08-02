@@ -232,7 +232,7 @@ public class BeanHelper {
                     // 非覆盖模式: 目标有值且非覆盖式true的情况
 //                    destField.setValue(destField.getValue() != null && no_overrider && value == null ? String.valueOf(destField.getValue()) : String.valueOf(value));
                     if (destField.getValue() != null) {//destValue!=null
-                        destField.setValue(no_overrider && value == null ? String.valueOf(destField.getValue()) : (value == null ? null : String.valueOf(value)));
+                        destField.setValue(no_overrider && value == null ? String.valueOf(destField.getValue()+"") : (value == null ? null : String.valueOf(value)));
                     } else {
                         destField.setValue(no_overrider && value == null ? null : (value == null ? null : String.valueOf(value)));
                     }
