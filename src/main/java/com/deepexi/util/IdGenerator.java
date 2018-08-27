@@ -2,6 +2,7 @@ package com.deepexi.util;
 
 import java.util.UUID;
 
+import com.deepexi.util.impl.id.NumberId;
 import com.deepexi.util.impl.id.ObjectId;
 
 /** 
@@ -27,6 +28,9 @@ public class IdGenerator {
 		return UUID.randomUUID().toString().replace("-", "");
 	}
 	
+	public static String getNumberId() {
+		return NumberId.getNumberId();
+	}
 	public static void main(String[] args) {
 		System.out.println(IdGenerator.getObjectId());
 		System.out.println(IdGenerator.getUuId());
