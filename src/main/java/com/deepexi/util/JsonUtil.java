@@ -64,4 +64,15 @@ public class JsonUtil {
     public static Map<String, String> json2Map(String jsonData) {
         return JSON.parseObject(jsonData, TreeMap.class);
     }
+
+    /**
+     * map转换成对象
+     *
+     * @param mapData
+     * @param clazz
+     * @return
+     */
+    public static <T> T map2Bean(Map<String, ?> mapData, Class<T> clazz) {
+        return (T) JSON.parseObject(JSON.toJSONString(mapData), clazz);
+    }
 }
