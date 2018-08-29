@@ -8,8 +8,6 @@ import java.io.IOException;
 import java.security.SecureRandom;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
-import java.util.Iterator;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -67,13 +65,7 @@ public class OkHttp3Utils {
         //2 将Request封装为Call
         Call call = mOkHttpClient.newCall(request);
         //3 执行Call，得到response
-        Response response = null;
-        try {
-            response = call.execute();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return response;
+        return execute(call);
     }
 
     /**
@@ -85,21 +77,28 @@ public class OkHttp3Utils {
      */
     public Response postDataSynToNet(String url, JSONObject jsonObject) {
         //1构造RequestBody
-        RequestBody body = RequestBody.create(mediaType,jsonObject.toString());
+        RequestBody body = RequestBody.create(mediaType, jsonObject.toString());
         //2 构造Request
         Request.Builder requestBuilder = new Request.Builder();
         Request request = requestBuilder.post(body).url(url).build();
         //3 将Request封装为Call
         Call call = mOkHttpClient.newCall(request);
         //4 执行Call，得到response
+        return execute(call);
+    }
+
+    private Response execute(Call call) {
         Response response = null;
         try {
             response = call.execute();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            response.close();
         }
         return response;
     }
+
 
     /**
      * get请求，异步方式，获取网络数据，是在子线程中执行的，需要切换到主线程才能更新UI
@@ -138,7 +137,7 @@ public class OkHttp3Utils {
      */
     public void postDataAsynToNet(String url, JSONObject jsonObject, final MyNetCall myNetCall) {
         //1构造RequestBody
-        RequestBody body = RequestBody.create(mediaType,jsonObject.toString());
+        RequestBody body = RequestBody.create(mediaType, jsonObject.toString());
         //2 构造Request
         Request.Builder requestBuilder = new Request.Builder();
         Request request = requestBuilder.post(body).url(url).build();
