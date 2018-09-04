@@ -91,10 +91,11 @@ public class OkHttp3Utils {
         Response response = null;
         try {
             response = call.execute();
+            if (!response.isSuccessful()) {
+                response.close();
+            }
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            response.close();
         }
         return response;
     }
