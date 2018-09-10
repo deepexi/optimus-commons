@@ -122,6 +122,11 @@
             <artifactId>pagehelper</artifactId>
             <version>5.1.4</version>
         </dependency>
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>3.11.0</version>
+        </dependency>
     </dependencies>
 
 
