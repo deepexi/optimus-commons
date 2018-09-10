@@ -24,8 +24,7 @@ public class BeanHelper {
     private static final String DATE_DEFAULT_PATTERN = "yyyy-MM-dd HH:mm:ss";
     private static final String[] DATE_PARSE_PATTERNS = new String[]{"yyyy-MM-dd", DATE_DEFAULT_PATTERN, "yyyy-MM-dd HH:mm"};
     protected static Logger logger = LoggerFactory.getLogger(BeanHelper.class);
-    private static Map<String, BeanField> origFieldMap = new HashMap<String, BeanField>();
-    private static Map<String, BeanField> destFieldMap = new HashMap<String, BeanField>();
+
 
     private BeanHelper() {
     }
@@ -46,11 +45,13 @@ public class BeanHelper {
 
     // 对象深度克隆
     private static <T> T copyProperties(Object dest, Object orig, boolean no_overrider) {
+        Map<String, BeanField> origFieldMap = new HashMap<String, BeanField>();
+        Map<String, BeanField> destFieldMap = new HashMap<String, BeanField>();
         if (orig == null || dest == null) {
             return (T) dest;
         }
-        BeanHelper.origFieldMap.clear();
-        BeanHelper.destFieldMap.clear();
+        origFieldMap.clear();
+        destFieldMap.clear();
 
         if (orig instanceof Map) {// Is Map and Not cache
             Map origMap = (Map) orig;
