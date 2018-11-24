@@ -18,6 +18,8 @@ import java.util.Set;
  * Created by VectorHo on 16/2/23.
  * <p>
  * Bean工具类: 深度克隆 etc.
+ *
+ * 不支持枚举类型字段克隆
  */
 public class BeanHelper {
 
@@ -31,12 +33,22 @@ public class BeanHelper {
     }
 
     // 对象克隆, 非覆盖dest成员变量 -> PUT
+    @Deprecated
     public static <T> T mapPartOverrider(Object dest, Object orig) {
         return BeanHelper.copyProperties(dest, orig, true);
     }
 
+    public static <T> T mapPartOverriderV2(Object orig, Object dest) {
+        return BeanHelper.copyProperties(dest, orig, true);
+    }
+
     // 对象克隆, 覆盖dest成员变量 -> POST GET
+    @Deprecated
     public static <T> T mapCompleteOverrider(Object dest, Object orig) {
+        return BeanHelper.copyProperties(dest, orig, false);
+    }
+
+    public static <T> T mapCompleteOverriderV2(Object orig, Object dest) {
         return BeanHelper.copyProperties(dest, orig, false);
     }
 

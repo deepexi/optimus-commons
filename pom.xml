@@ -4,7 +4,7 @@
 
     <groupId>com.deepexi.common</groupId>
     <artifactId>optimus-common</artifactId>
-    <version>1.1.2-SNAPSHOT</version>
+    <version>1.1.4-SNAPSHOT</version>
 
     <packaging>jar</packaging>
 
@@ -136,11 +136,14 @@
             <version>3.2.1</version>
         </dependency> -->
 
+        <!--深度拷贝神器-->
+        <!-- https://mvnrepository.com/artifact/net.sf.dozer/dozer -->
         <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-mapper-asl</artifactId>
-            <version>1.9.13</version>
+            <groupId>net.sf.dozer</groupId>
+            <artifactId>dozer</artifactId>
+            <version>5.5.1</version>
         </dependency>
+
     </dependencies>
 
 
