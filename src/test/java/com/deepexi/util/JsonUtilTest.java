@@ -55,7 +55,7 @@ public class JsonUtilTest {
 		String jsonString = JsonUtil.bean2JsonString(bean);
 		
 		TestBean testBean = new TestBean();
-		testBean = JsonUtil.json2Bean(jsonString, testBean);
+		testBean = JsonUtil.json2Bean(jsonString, TestBean.class);
 		
 		System.out.println(testBean);
 	}

@@ -112,6 +112,11 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.5</version>
         </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.13</version>
+        </dependency>
 
         <!--深度拷贝神器-->
         <!-- https://mvnrepository.com/artifact/net.sf.dozer/dozer -->
