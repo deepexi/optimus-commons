@@ -24,7 +24,7 @@ import static org.dozer.loader.api.TypeMappingOptions.mapNull;
  **/
 public class BeanPowerHelper {
 
-    public static DozerBeanMapper completeMapper = new DozerBeanMapper();
+    private static DozerBeanMapper completeMapper = new DozerBeanMapper();
 
     /**
      * 部分克隆：值为null、空字符串不拷贝
