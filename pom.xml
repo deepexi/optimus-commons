@@ -112,25 +112,15 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.5</version>
         </dependency>
-<<<<<<< HEAD
-        <!-- <dependency>
-            <groupId>org.apache.directory.studio</groupId>
-            <artifactId>org.apache.commons.collections</artifactId>
-            <version>3.2.1</version>
-        </dependency> -->
 
         <!--深度拷贝神器-->
         <!-- https://mvnrepository.com/artifact/net.sf.dozer/dozer -->
-=======
->>>>>>> 4e49b8479025d677f4fc3e4bd2fdc0e5c17cb534
         <dependency>
             <groupId>net.sf.dozer</groupId>
             <artifactId>dozer</artifactId>
             <version>5.5.1</version>
         </dependency>
-<<<<<<< HEAD
 
-=======
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper</artifactId>
@@ -141,7 +131,6 @@
             <artifactId>okhttp</artifactId>
             <version>3.11.0</version>
         </dependency>
->>>>>>> 4e49b8479025d677f4fc3e4bd2fdc0e5c17cb534
     </dependencies>
 
 
